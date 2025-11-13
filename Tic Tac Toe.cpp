@@ -4,7 +4,7 @@
 void takeInput(char matrix[3][3], int *r, int *c) {
     while (1) {
     	int p;
-        printf("Enter row and column using key pad");
+        printf("Select row and column using key pad (1 to 9)");
         scanf("%d",&p);
         switch(p)
         {
@@ -125,3 +125,4 @@ int main() {
 
     }
 }
+
