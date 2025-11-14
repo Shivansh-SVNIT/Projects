@@ -1,10 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+//-----------------------------input function----------------------------
+
 void takeInput(char matrix[3][3], int *r, int *c) {
     while (1) {
     	int p;
-        printf("Select row and column using key pad (1 to 9)");
+        printf("Select row and column using key pad (1 to 9)\n");
         scanf("%d",&p);
         switch(p)
         {
@@ -51,6 +53,7 @@ void takeInput(char matrix[3][3], int *r, int *c) {
     }
 }
 
+//-------------------------------------------win function-----------------------------------------
 
 int won(char a, char matrix[3][3]) {
     if (matrix[0][0] != '.' && matrix[0][0] == matrix[1][1] && matrix[1][1] == matrix[2][2]) {
@@ -69,6 +72,8 @@ int won(char a, char matrix[3][3]) {
     }
     return 0;
 }
+
+//---------------------------------------main function--------------------------------------
 int main() {
     char matrix[3][3];
     for (int k=0 ;k<3; k++) {
@@ -83,8 +88,14 @@ int main() {
         printf("\n");
     }
     int z=0;
+    
+    //------------------------------------
+    
     while (z<9) {
         int i, j;
+        
+        
+        //------------------------------------
 
         printf("Enter turn of X:\n");
         takeInput(matrix, &i, &j);
@@ -103,7 +114,14 @@ int main() {
             printf("'X' WON!!");
             exit(1);
         }
+		
+		if(z==9)
+        {
+        	printf("\nThe game is tied !!!\n");
+			exit(1);
+		}
         
+        //---------------------------------------
 
         printf("Enter turn of 0:\n");
         takeInput(matrix, &i, &j);
@@ -121,8 +139,8 @@ int main() {
             exit(1);
         }
         
-
-
+        //----------------------------------------
+        
+        
     }
 }
-
